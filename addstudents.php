@@ -31,7 +31,7 @@ if (isset($_SESSION['id'])) {
             $image = $_FILES['profile_picture']['tmp_name'];
 
             if (!empty($image)) {
-                $imagedata = addslashes(file_get_contents($image));
+                $imagedata =  addslashes(fread(fopen($image, "r"), filesize($image)));
                 $sql = "INSERT INTO student (studentid, password, dob, firstname, lastname, house, town, county, country, postcode, profile_picture)
                         VALUES ('{$_POST['studentid']}', '{$hashed_password}', '{$_POST['dob']}', '{$_POST['firstname']}', '{$_POST['lastname']}', '{$_POST['house']}', '{$_POST['town']}', '{$_POST['county']}', '{$_POST['country']}', '{$_POST['postcode']}', '{$imagedata}')";
             } else {

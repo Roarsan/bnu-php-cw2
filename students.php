@@ -33,7 +33,7 @@ if (isset($_SESSION['id'])) {
         
         if ($row['profile_picture']) {
             // Display image if profile picture exists
-            echo "<td style='padding: 8px;'><img src='getjpg.php?" . $row['profile_picture'] . "' width='100' height='100'></td>";
+            echo "<td style='padding: 8px;'><img src='templates/getjpg.php?" . $row['profile_picture'] . "' width='100' height='100'></td>";
         } else {
             // Display a placeholder image if profile picture is not available
             echo "<td style='padding: 8px;'><img src='placeholder_image.jpg' width='100' height='100'></td>";
